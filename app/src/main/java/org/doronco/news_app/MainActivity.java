@@ -1,19 +1,26 @@
 package org.doronco.news_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new MyAsyncTask(this).execute();
     }
 
-        /*RequestQueue queue = Volley.newRequestQueue(context);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recyclerView = findViewById(R.id.users_list);
+        new MyAsyncTask(this,recyclerView).execute();
+    }
+    /*RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

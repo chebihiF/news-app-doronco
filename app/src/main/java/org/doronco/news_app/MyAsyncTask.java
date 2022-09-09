@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -11,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.doronco.news_app.adapter.UserAdapter;
 import org.doronco.news_app.model.User;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,11 +32,11 @@ import java.util.List;
 public class MyAsyncTask extends AsyncTask<String,Integer,String> {
 
     private Context context;
-    //private final String url = "https://jsonplaceholder.typicode.com/users";
-    String data = "";
+    RecyclerView recyclerView;
 
-    public MyAsyncTask(Context context) {
+    public MyAsyncTask(Context context, RecyclerView recyclerView) {
         this.context = context;
+        this.recyclerView = recyclerView;
     }
 
     @Override
@@ -79,6 +83,12 @@ public class MyAsyncTask extends AsyncTask<String,Integer,String> {
                         geo.getString("lng")
                 ));
             }
+
+            LinearLayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
+            recyclerView.setLayoutManager(layoutManager);
+            UserAdapter adapter = new UserAdapter(users_resp);
+            recyclerView.setAdapter(adapter);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
