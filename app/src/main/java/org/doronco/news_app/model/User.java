@@ -7,6 +7,15 @@ public class User {
     private String email;
     private String lat;
     private String lng;
+    private String imgUrl ;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public int getId() {
         return id;

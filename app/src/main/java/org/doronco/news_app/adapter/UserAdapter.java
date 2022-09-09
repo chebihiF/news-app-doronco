@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import org.doronco.news_app.R;
 import org.doronco.news_app.model.User;
 
@@ -69,6 +71,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             email.setText(user.getEmail());
             lat.setText(user.getLat());
             lng.setText(user.getLng());
+            Picasso.get().load(user.getImgUrl()).into(img);
         }
 
         public User getUser() {

@@ -74,14 +74,16 @@ public class MyAsyncTask extends AsyncTask<String,Integer,String> {
                 JSONObject user = users.getJSONObject(i);
                 JSONObject address = user.getJSONObject("address");
                 JSONObject geo = address.getJSONObject("geo");
-                users_resp.add(new User(
+                User e = new User(
                         user.getInt("id"),
                         user.getString("name"),
                         user.getString("username"),
                         user.getString("email"),
                         geo.getString("lat"),
                         geo.getString("lng")
-                ));
+                );
+                e.setImgUrl("https://picsum.photos/200");
+                users_resp.add(e);
             }
 
             LinearLayoutManager layoutManager = new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false);
