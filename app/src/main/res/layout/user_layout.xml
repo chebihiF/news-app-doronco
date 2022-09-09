@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    >
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/username"
+        android:hint="Username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@id/img1"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_alignStart="@id/username"
+        android:layout_toEndOf="@id/img1"
+        android:hint="Name"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_toEndOf="@id/name"
+        android:hint="Email"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/lat"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/username"
+        android:layout_toEndOf="@id/img1"
+        android:layout_alignBottom="@id/img1"
+        android:hint="Lat"
+        android:textColor="#1090EB"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/lng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/lat"
+        android:layout_alignBottom="@id/img1"
+        android:hint="Lng"
+        android:textColor="#1090EB"
+        android:textSize="15sp" />
+
+</RelativeLayout>
